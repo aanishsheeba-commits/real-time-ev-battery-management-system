@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time EV Battery Management System</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: #0b3d91;
+            color: white;
+            padding: 45px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 12px;
+            font-size: 34px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 17px;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 22px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: #0b3d91;
+            margin-top: 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 18px;
+        }
+
+        .metric {
+            background: #eef4ff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .metric h3 {
+            margin: 0 0 8px;
+            color: #0b3d91;
+        }
+
+        .metric p {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #0b3d91;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+            margin-top: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #172033;
+            color: white;
+            margin-top: 40px;
+        }
+
+        .status {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Real-Time EV Battery Management System</h1>
+    <p>Adaptive Multi-Cell Battery Intelligence Engine</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Project Overview</h2>
+        <p>
+            This project implements a simulated real-time Battery Management System
+            for a 4-cell lithium battery pack. The system monitors individual cell
+            voltages, evaluates battery pack condition, calculates cell imbalance,
+            identifies the strongest and weakest cells, and classifies the overall
+            battery health.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Key Features</h2>
+
+        <div class="grid">
+
+            <div class="metric">
+                <h3>4-Cell Monitoring</h3>
+                <p>Individual voltage monitoring for four battery cells.</p>
+            </div>
+
+            <div class="metric">
+                <h3>Pack Voltage</h3>
+                <p>Real-time calculation of total battery pack voltage.</p>
+            </div>
+
+            <div class="metric">
+                <h3>Cell Imbalance</h3>
+                <p>Calculation of voltage variation between cells.</p>
+            </div>
+
+            <div class="metric">
+                <h3>Health Classification</h3>
+                <p>Battery condition classification based on cell measurements.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Battery Intelligence</h2>
+
+        <ul>
+            <li>Individual cell voltage calculation</li>
+            <li>Average cell voltage calculation</li>
+            <li>Battery pack voltage calculation</li>
+            <li>Strongest cell identification</li>
+            <li>Weakest cell identification</li>
+            <li>Cell voltage imbalance calculation</li>
+            <li>Battery health state classification</li>
+            <li>Real-time serial monitoring</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Battery Health States</h2>
+
+        <ul>
+            <li><span class="status">Healthy</span> – Battery cells are operating within acceptable balance.</li>
+            <li><span class="status">Minor Imbalance</span> – Small voltage variation is detected between cells.</li>
+            <li><span class="status">Critical Imbalance</span> – Significant voltage imbalance is detected.</li>
+            <li><span class="status">Pack Failure</span> – A cell voltage is outside the configured safe operating range.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Simulation & IoT Monitoring</h2>
+
+        <p>
+            The battery management system was developed and tested using an ESP32
+            simulation environment. Analog inputs represent the voltage conditions
+            of the four battery cells.
+        </p>
+
+        <p>
+            The monitoring system is also integrated with ThingSpeak for cloud-based
+            data transmission and dashboard visualization. Successful HTTP
+            communication was verified during testing.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Test Result</h2>
+
+        <p>
+            A healthy battery test produced the following representative result:
+        </p>
+
+        <ul>
+            <li>Cell 1: 3.609 V</li>
+            <li>Cell 2: 3.591 V</li>
+            <li>Cell 3: 3.604 V</li>
+            <li>Cell 4: 3.609 V</li>
+            <li>Pack Voltage: 14.413 V</li>
+            <li>Average Cell Voltage: 3.603 V</li>
+            <li>Strongest Cell: Cell 1</li>
+            <li>Weakest Cell: Cell 2</li>
+            <li>Imbalance: 0.50%</li>
+            <li>Battery State: HEALTHY</li>
+            <li>ThingSpeak Response: HTTP 200</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Technology Stack</h2>
+
+        <ul>
+            <li>ESP32</li>
+            <li>Wokwi Simulation</li>
+            <li>Arduino/C++</li>
+            <li>Analog Voltage Monitoring</li>
+            <li>ThingSpeak IoT Platform</li>
+            <li>GitHub</li>
+            <li>HTML & CSS</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Source Code</h2>
+
+        <p>
+            The complete project source code and documentation are maintained in
+            the GitHub repository.
+        </p>
+
+        <a class="button"
+           href="https://github.com/aanishsheeba-commits/real-time-ev-battery-management-system"
+           target="_blank">
+            View GitHub Repository
+        </a>
+    </div>
+
+</div>
+
+<footer>
+    Real-Time EV Battery Management System | Adaptive Multi-Cell Battery Intelligence Engine
+</footer>
+
+</body>
+</html>
